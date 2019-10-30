@@ -40,7 +40,7 @@ class App extends Component {
         <Header />
         <SearchBox searchChange={onSearchChange}/>
         <Scroll>
-          { isPending ? <h1>Loading</h1> :
+          { isPending ? <h1>Loading...</h1> :
             <ErrorBoundry>
               <CardList robots={filteredRobots} />
             </ErrorBoundry>
