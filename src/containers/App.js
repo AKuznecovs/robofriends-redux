@@ -39,17 +39,17 @@ class App extends Component {
 		const filteredRobots = robots.filter(robot =>{
 			return robot.name.toLowerCase().includes(searchField.toLowerCase());
 		})
-		return isPending ?
-		<h1> Loading... </h1> :
-		(
+		return (
 			<div className='tc'>
 				<Header />
-				<SearchBox searchChange={onSearchChange}/>
+				<SearchBox searchChange={onSearchChange} />
 				<Scroll>
-					<ErrorBoundry>
-						<CardList robots={filteredRobots} />
-					</ErrorBoundry>
-					</Scroll>
+					{isPending ? <h1>Loading</h1> :
+						<ErrorBoundry>
+							<CardList robots={filteredRobots} />
+						</ErrorBoundry>
+					}
+				</Scroll>
 			</div>
 		);
 	}
