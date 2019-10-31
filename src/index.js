@@ -15,7 +15,6 @@ import './index.css';
 const logger = createLogger();
 const rootReducer = combineReducers({ searchRobots, requestRobots });
 
-// const store = createStore(rootReducer);
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger))
 
 ReactDOM.render(
@@ -23,4 +22,5 @@ ReactDOM.render(
                   <App />
                </Provider>, 
                document.getElementById('root'));
-serviceWorker.unregister();
+               
+serviceWorker.register();
